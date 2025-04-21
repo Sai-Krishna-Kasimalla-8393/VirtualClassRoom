@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Assignment Form</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: #f5f7fa;
+        }
+        .form-container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 30px;
+            background: #fff;
+            border-radius: 16px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+        }
+        .form-title {
+            text-align: center;
+            margin-bottom: 25px;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="form-container">
+        <h2 class="form-title">Create / Update Assignment</h2>
+        <form th:action="@{/dashboard/student/assignments}" th:object="${assign}" method="post">
+            
+            <input type="hidden" th:field="*{id}" />
+
+            <div class="mb-3">
+                <label class="form-label">Title</label>
+                <input type="text" th:field="*{title}" class="form-control" placeholder="Enter title" required />
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Description</label>
+                <textarea th:field="*{description}" class="form-control" rows="4" placeholder="Enter description"></textarea>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Due Date</label>
+                <input type="date" th:field="*{dueDate}" class="form-control" required />
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Max Marks</label>
+                <input type="number" th:field="*{maxMarks}" class="form-control" placeholder="Enter max marks" required />
+            </div>
+
+            <div class="form-check mb-3">
+                <input type="checkbox" th:field="*{submitted}" class="form-check-input" />
+                <label class="form-check-label">Submitted</label>
+            </div>
+
+            <div class="d-grid">
+                <button type="submit" class="btn btn-primary">Save Assignment</button>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>

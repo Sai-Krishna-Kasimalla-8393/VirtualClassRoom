@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Fee Details</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gradient-to-r from-blue-100 to-blue-200 min-h-screen flex items-center justify-center">
+    <div class="bg-white shadow-2xl rounded-2xl p-10 w-full max-w-lg">
+        <h2 class="text-3xl font-bold text-center text-blue-700 mb-8">Create Student Fee Details</h2>
+        
+        <form th:action="@{/dashboard/students/Fee}" th:object="${fee}" method="post" class="space-y-6">
+
+            <div>
+                <label class="block text-gray-700 font-semibold">Student ID</label>
+                <input type="number" th:field="*{studentId}" class="w-full mt-1 p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400" placeholder="Enter Student ID">
+            </div>
+
+            <div>
+                <label class="block text-gray-700 font-semibold">Name</label>
+                <input type="text" th:field="*{name}" class="w-full mt-1 p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400" placeholder="Enter Name">
+            </div>
+
+            <div>
+                <label class="block text-gray-700 font-semibold">Branch</label>
+                <input type="text" th:field="*{branch}" class="w-full mt-1 p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400" placeholder="Enter Branch">
+            </div>
+
+            <div>
+                <label class="block text-gray-700 font-semibold">Total Fee</label>
+                <input type="number" step="0.01" th:field="*{fee}" class="w-full mt-1 p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400" placeholder="Enter Total Fee">
+            </div>
+
+            <div>
+                <label class="block text-gray-700 font-semibold">Fee Balance</label>
+                <input type="number" step="0.01" th:field="*{feeBalance}" class="w-full mt-1 p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400" placeholder="Enter Fee Balance">
+            </div>
+
+            <div>
+                <label class="block text-gray-700 font-semibold">Building Fee</label>
+                <input type="number" step="0.01" th:field="*{buildingFee}" class="w-full mt-1 p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400" placeholder="Enter Building Fee">
+            </div>
+
+            <div>
+                <label class="block text-gray-700 font-semibold">College Fee</label>
+                <input type="number" step="0.01" th:field="*{collegeFee}" class="w-full mt-1 p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400" placeholder="Enter College Fee">
+            </div>
+
+            <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-lg transition duration-300">Save Fee Details</button>
+        </form>
+    </div>
+</body>
+</html>

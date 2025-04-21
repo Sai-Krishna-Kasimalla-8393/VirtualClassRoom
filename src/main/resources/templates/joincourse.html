@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Join Course - Virtual Classroom</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <style>
+        body {
+            background: linear-gradient(to right, #f9fafb, #dbeafe);
+            font-family: 'Segoe UI', sans-serif;
+        }
+        .form-container {
+            background: #ffffff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .form-title {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #1e3a8a;
+        }
+        .btn-custom {
+            background-color: #4CAF50;
+            color: white;
+            border-radius: 20px;
+            padding: 10px 30px;
+            font-size: 1.1rem;
+        }
+        .btn-custom:hover {
+            background-color: #45a049;
+        }
+        .form-label {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5 d-flex justify-content-center">
+        <div class="form-container col-12 col-md-6">
+            <h2 class="text-center form-title mb-4">Join a Course</h2>
+            
+            <form th:action="@{/dashboard/joincourse}" method="post">
+                
+                <!-- Student ID -->
+                <div class="mb-4">
+                    <label for="studentid" class="form-label">Student ID</label>
+                    <input type="number" id="studentid" name="studentid" class="form-control" th:value="${studentid}" required>
+                </div>
+
+                <!-- Student Name -->
+                <div class="mb-4">
+                    <label for="studentname" class="form-label">Student Name</label>
+                    <input type="text" id="studentname" name="studentName" class="form-control" th:value="${studentName}" required>
+                </div>
+
+                <!-- Student Email -->
+                <div class="mb-4">
+                    <label for="studentemail" class="form-label">Student Email</label>
+                    <input type="email" id="studentemail" name="studentemail" class="form-control" th:value="${studentemail}" required>
+                </div>
+
+                <!-- Course Name -->
+                <div class="mb-4">
+                    <label for="coursename" class="form-label">Course Name</label>
+                    <input type="text" id="coursename" name="coursename" class="form-control" th:value="${coursename}" required>
+                </div>
+
+                <!-- Submit Button -->
+                <div class="text-center">
+                    <button type="submit" class="btn btn-custom">Join Course</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS & Popper.js (if needed for modal, dropdowns, etc.) -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+</body>
+</html>

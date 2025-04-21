@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Student Attendance</title>
+</head>
+<body>
+    <h2>Attendance Record</h2>
+    <table border="1">
+        <tr>
+            <th>Date</th>
+            <th>Subject</th>
+            <th>Present</th>
+        </tr>
+        <tr th:each="record : ${attendanceList}">
+            <td th:text="${record.date}"></td>
+            <td th:text="${record.subject}"></td>
+            <td th:text="${record.present}"></td>
+        </tr>
+    </table>
+    <footer class="py-4 bg-dark text-white text-center">
+    <p class="mb-0">© 2025 SAI KRISHNA KASIMALLA. All rights reserved. | Designed with ❤️</p>
+  </footer>
+</body>
+
+</html>

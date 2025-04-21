@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Student Attendance</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f2f6fc;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 30px;
+        }
+
+        .latest-attendance {
+            background: #ffffff;
+            border-left: 6px solid #3498db;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .latest-attendance h2 {
+            color: #34495e;
+            margin-top: 0;
+        }
+
+        table {
+            width: 90%;
+            margin: 0 auto;
+            border-collapse: collapse;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        thead {
+            background-color: #3498db;
+            color: white;
+        }
+
+        th, td {
+            padding: 12px 18px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+        }
+
+        tbody tr:hover {
+            background-color: #f0f8ff;
+        }
+
+        @media (max-width: 768px) {
+            table, th, td {
+                font-size: 14px;
+            }
+
+            .latest-attendance {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Student Attendance</h1>
+
+    <!-- Latest Attendance -->
+    <div th:if="${firstAttendance != null}" class="latest-attendance">
+        <h2>Latest Attendance</h2>
+        <p><strong>Date:</strong> <span th:text="${firstAttendance.date}"></span></p>
+        <p><strong>Status:</strong> <span th:text="${firstAttendance.status}"></span></p>
+    </div>
+
+    <!-- Attendance Table -->
+    <table>
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Date</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="att, iterStat : ${attends}">
+                <td th:text="${iterStat.count}">1</td>
+                <td th:text="${att.date}">2024-01-01</td>
+                <td th:text="${att.status}">Present</td>
+            </tr>
+        </tbody>
+    </table>
+    <footer class="py-4 bg-dark text-white text-center">
+    <p class="mb-0">© 2025 SAI KRISHNA KASIMALLA. All rights reserved. | Designed with ❤️</p>
+  </footer>
+</body>
+</html>

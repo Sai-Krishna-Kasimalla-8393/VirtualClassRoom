@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Student Dashboard - Virtual Classroom</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <style>
+        body {
+            background: linear-gradient(to right, #dbeafe, #fef9c3);
+            font-family: 'Segoe UI', sans-serif;
+        }
+        .dashboard-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .dashboard-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+        }
+        .dashboard-title {
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: #1e3a8a;
+        }
+        .card-body {
+            padding: 30px;
+            background: linear-gradient(135deg, #f3f4f6, #ffffff);
+            border-radius: 15px;
+            text-align: center;
+        }
+        .card-icon {
+            font-size: 50px;
+            margin-bottom: 20px;
+        }
+        .card-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #333;
+        }
+        .btn {
+            padding: 12px 20px;
+            font-size: 1rem;
+            font-weight: 500;
+            border-radius: 10px;
+        }
+        .btn-outline-primary:hover, .btn-outline-success:hover, .btn-outline-dark:hover, .btn-outline-warning:hover, .btn-outline-danger:hover, .btn-outline-info:hover {
+            background-color: #e6e6e6;
+        }
+        footer {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            background-color: #212529;
+            color: white;
+        }
+        footer p {
+            margin-bottom: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center dashboard-title mb-5">
+            Welcome, <span th:text="${studentName}" class="text-primary">Student</span> 🎓
+        </h1>
+
+        <div class="row g-4 justify-content-center">
+
+            <!-- Classes -->
+            <div class="col-12 col-sm-6 col-md-4">
+                <div class="card dashboard-card border-0 shadow-lg h-100">
+                    <div class="card-body">
+                        <div class="card-icon">📚</div>
+                        <h4 class="card-title mb-3">Classes</h4>
+                        <a th:href="@{/dashboard/student/fetch-class}" class="btn btn-outline-primary">View Classes</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Assignments -->
+            <div class="col-12 col-sm-6 col-md-4">
+                <div class="card dashboard-card border-0 shadow-lg h-100">
+                    <div class="card-body">
+                        <div class="card-icon">📝</div>
+                        <h4 class="card-title mb-3">Assignments</h4>
+                        <a th:href="@{/dashboard/student/fetchassignment}" class="btn btn-outline-success">Check Assignments</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Grades -->
+            <div class="col-12 col-sm-6 col-md-4">
+                <div class="card dashboard-card border-0 shadow-lg h-100">
+                    <div class="card-body">
+                        <div class="card-icon">📊</div>
+                        <h4 class="card-title mb-3">Grades</h4>
+                        <a th:href="@{/dashboard/student/getmarks}" class="btn btn-outline-dark">View Grades</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Attendance -->
+            <div class="col-12 col-sm-6 col-md-4">
+                <div class="card dashboard-card border-0 shadow-lg h-100">
+                    <div class="card-body">
+                        <div class="card-icon">📅</div>
+                        <h4 class="card-title mb-3">Attendance</h4>
+                        <a th:href="@{/dashboard/student/getAttendance}" class="btn btn-outline-warning">Track Attendance</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Fee -->
+            <div class="col-12 col-sm-6 col-md-4">
+                <div class="card dashboard-card border-0 shadow-lg h-100">
+                    <div class="card-body">
+                        <div class="card-icon">💰</div>
+                        <h4 class="card-title mb-3">Student Fee</h4>
+                        <a th:href="@{/dashboard/students/fetchFee}" class="btn btn-outline-danger">Pay Fee</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Courses -->
+            <div class="col-12 col-sm-6 col-md-4">
+                <div class="card dashboard-card border-0 shadow-lg h-100">
+                    <div class="card-body">
+                        <div class="card-icon">📘</div>
+                        <h4 class="card-title mb-3">Courses</h4>
+                        <a th:href="@{/dashboard/fetchcourse}" class="btn btn-outline-info">Available Courses</a>
+                        <a th:href="@{/dashboard/joincourse}" class="btn btn-outline-info">Join a Course</a>
+                        <a th:href="@{/dashboard/mycourses}" class="btn btn-outline-info">My Courses</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Logout -->
+        <div class="text-center mt-5">
+            <a href="/dashboard/studentlogout" class="btn btn-danger btn-lg px-5 rounded-pill shadow">Logout 🚪</a>
+        </div>
+    </div>
+
+    <footer class="py-4 text-white text-center">
+        <p class="mb-0">© 2025 SAI KRISHNA KASIMALLA. All rights reserved. | Designed with ❤️</p>
+    </footer>
+</body>
+</html>

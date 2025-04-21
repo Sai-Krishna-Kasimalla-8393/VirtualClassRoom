@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Student Marks</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f2f6fc;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 60%;
+            margin: 50px auto;
+            background-color: #ffffff;
+            padding: 30px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        th, td {
+            padding: 12px 18px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #4285f4;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f7f9fc;
+        }
+
+        tr:last-child td {
+            font-weight: bold;
+            background-color: #e3f2fd;
+        }
+
+        td:last-child {
+            text-align: center;
+        }
+
+        .grade-row {
+            background-color: #dcedc8;
+            font-size: 18px;
+        }
+
+        .sgpa-row {
+            background-color: #fff9c4;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h2>Marks for :<span th:text="${mark.name}"></span></h2>
+
+    <table>
+        <tr>
+            <th>Subject</th>
+            <th>Marks</th>
+        </tr>
+        <tr><td>Core Java</td><td th:text="${mark.coreJava}"></td></tr>
+        <tr><td>JDBC</td><td th:text="${mark.jdbc}"></td></tr>
+        <tr><td>Hibernate JPA</td><td th:text="${mark.hibernateJpa}"></td></tr>
+        <tr><td>Spring MVC</td><td th:text="${mark.springMvc}"></td></tr>
+        <tr><td>REST API</td><td th:text="${mark.restApi}"></td></tr>
+        <tr><td>MySQL</td><td th:text="${mark.mySQl}"></td></tr>
+        <tr><td>DevOps</td><td th:text="${mark.devops}"></td></tr>
+        <tr class="sgpa-row"><td>SGPA</td><td th:text="${mark.SGPA}"></td></tr>
+        <tr class="grade-row"><td>Grade</td><td th:text="${mark.grade}"></td></tr>
+    </table>
+</div>
+</body>
+</html>
